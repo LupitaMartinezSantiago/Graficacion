@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Imagen</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #12c0f5;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #upload-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            background-color: #fafafa;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #upload-message {
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #28a745;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        #uploaded-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 8px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detección Facial</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Subir Imagen</button>
+        </form>
+        <div id="upload-message"></div>
+        <div class="image-container">
+            <img id="uploaded-image" src="" alt="Imagen Subida" />
+        </div>
+    </div>
+
+    <script>
+        // Manejo de la carga de imagen
+        document.getElementById('upload-form').onsubmit = function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.image) {
+                    document.getElementById('upload-message').innerText = data.message;
+                    document.getElementById('uploaded-image').src = data.image;
+                    document.getElementById('uploaded-image').style.display = 'block';
+                } else {
+                    document.getElementById('upload-message').innerText = data.error;
+                }
+            });
+        };
+    </script>
+</body>
+</html>
