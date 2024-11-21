@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 app = Flask(__name__)
 
-# Ruta del archivo de dataset específico
+
 DATASET_PATH = '/home/lupita/Documentos/ForestRegresion/TotalFeatures-ISCXFlowMeter.csv'
 
 @app.route('/')
@@ -16,7 +16,7 @@ def index():
     # Cargar y procesar el dataset
     df = pd.read_csv(DATASET_PATH)
     
-    # Identificar y convertir columnas categóricas
+ 
     label_encoders = {}
     for column in df.columns:
         if df[column].dtype == 'object':
