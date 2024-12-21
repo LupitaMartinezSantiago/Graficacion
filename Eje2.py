@@ -10,14 +10,14 @@ import random
 
 app = Flask(__name__)
 
-# Cargar el predictor de forma facial de dlib
+
 predictor_path = "shape_predictor_68_face_landmarks.dat"
 
 try:
     predictor = dlib.shape_predictor(predictor_path)
 except RuntimeError as e:
     print(f"Error al cargar el predictor: {e}")
-    exit(1)  # Salir del programa si no se puede cargar el predictor
+    exit(1)  
 
 detector = dlib.get_frontal_face_detector()
 
