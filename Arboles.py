@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import pandas as pd
-import matplotlib.pyplot as plt  # Importar matplotlib para generar gráficos
+import matplotlib.pyplot as plt  
 import os
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
@@ -13,7 +13,7 @@ DATASET_PATH = '/home/lupita/Documentos/ForestRegresion/TotalFeatures-ISCXFlowMe
 
 @app.route('/')
 def index():
-    # Cargar y procesar el dataset
+    
     df = pd.read_csv(DATASET_PATH)
     
  
@@ -24,7 +24,7 @@ def index():
             df[column] = le.fit_transform(df[column])
             label_encoders[column] = le
 
-    # Separar características (X) y etiquetas (y)
+   
     X = df.iloc[:, :-1]
     y = df.iloc[:, -1].values
 
