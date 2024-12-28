@@ -51,13 +51,13 @@ def upload_image():
             landmarks = predictor(gray, face)
 
             puntos_a_dibujar = [
-                21, 22,  # Extremos de las cejas
+                21, 22,  
                 17, 25,
-                36, 37, 38,  # Ojo izquierdo (esquinas y centro)
+                36, 37, 38,  
                 42, 43, 44,  # Ojo derecho (esquinas y centro)
                 30,  # Nariz
                 51,  # Labio superior (centro)
-                57,  # Labio inferior (centro)
+                57,  
                 48, 54  # Labios (lados)
             ]
 
