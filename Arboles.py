@@ -41,11 +41,11 @@ def index():
     X_train = X_train[:num_training_samples]
     y_train = y_train[:num_training_samples]
 
-    # Entrenamiento del modelo Random Forest
+   
     model = RandomForestRegressor(n_estimators=100, random_state=0)
     model.fit(X_train, y_train)
 
-    # Graficar resultados del modelo Random Forest
+  
     try:
         plt.figure(figsize=(10, 5))
         plt.scatter(y_test, model.predict(X_test), color='blue')
@@ -60,7 +60,7 @@ def index():
         print(f"Error al generar el gráfico de predicciones: {e}")
         return f"Error al generar el gráfico de predicciones: {e}"
 
-    # Ruta del archivo SVG del árbol de decisión (ya generado previamente)
+   
     tree_svg_path = 'static/arbol.svg'
 
     # Verificar que el archivo SVG existe
