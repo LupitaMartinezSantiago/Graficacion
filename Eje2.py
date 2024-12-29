@@ -33,17 +33,17 @@ def upload_image():
     file = request.files['image']
     
     try:
-        # Abrir la imagen con PIL
+       
         image = Image.open(file)
         image_np = np.array(image)
 
-        # Convertir la imagen a escala de grises para detección de rostros
+       
         gray = cv2.cvtColor(image_np, cv2.COLOR_BGR2GRAY)
 
-        # Detectar rostros
+       
         faces = detector(gray)
 
-        # Crear un objeto de dibujo para agregar las "X"
+      
         draw = ImageDraw.Draw(image)
 
         # Dibujar puntos faciales en la imagen
