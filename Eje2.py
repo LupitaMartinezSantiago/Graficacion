@@ -46,7 +46,7 @@ def upload_image():
       
         draw = ImageDraw.Draw(image)
 
-        # Dibujar puntos faciales en la imagen
+        
         for face in faces:
             landmarks = predictor(gray, face)
 
@@ -54,11 +54,11 @@ def upload_image():
                 21, 22,  
                 17, 25,
                 36, 37, 38,  
-                42, 43, 44,  # Ojo derecho (esquinas y centro)
-                30,  # Nariz
-                51,  # Labio superior (centro)
+                42, 43, 44, 
+                30, 
+                51,  
                 57,  
-                48, 54  # Labios (lados)
+                48, 54  
             ]
 
             for i in puntos_a_dibujar:
