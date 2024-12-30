@@ -87,7 +87,7 @@ def plot_keyfacial():
     images = ['image1.jpg', 'image2.jpg', 'image3.jpg']
     
     try:
-        # Seleccionar una imagen aleatoria
+      
         selected_image = random.choice(images)
         image = Image.open(selected_image)
         image_np = np.array(image)
@@ -98,10 +98,10 @@ def plot_keyfacial():
 
         for face in faces:
             landmarks = predictor(gray, face)
-            for i in range(0, 68):  # Dibuja todos los puntos faciales
+            for i in range(0, 68):  
                 x = landmarks.part(i).x
                 y = landmarks.part(i).y
-                # Cambiar el ancho a 3 o 4 para hacer los puntos más grandes
+               
                 draw.line((x - 4, y - 4, x + 4, y + 4), fill=(255, 0, 0), width=3)  # Aumento del ancho
                 draw.line((x - 4, y + 4, x + 4, y - 4), fill=(255, 0, 0), width=3)  # Aumento del ancho
 
