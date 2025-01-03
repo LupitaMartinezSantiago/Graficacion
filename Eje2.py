@@ -64,16 +64,16 @@ def upload_image():
             for i in puntos_a_dibujar:
                 x = landmarks.part(i).x
                 y = landmarks.part(i).y
-                # Cambiar el ancho a 3 o 4 para hacer los puntos más grandes
+              
                 draw.line((x - 4, y - 4, x + 4, y + 4), fill=(255, 0, 0), width=3)  # Aumento del ancho
                 draw.line((x - 4, y + 4, x + 4, y - 4), fill=(255, 0, 0), width=3)  # Aumento del ancho
 
-        # Guardar la imagen con los puntos faciales en un buffer
+        
         buf = io.BytesIO()
         image.save(buf, format='JPEG')
         buf.seek(0)
 
-        # Convertir la imagen a base64
+       
         image_data = buf.read()
         image_base64 = 'data:image/jpeg;base64,' + base64.b64encode(image_data).decode('utf-8')
 
