@@ -65,8 +65,8 @@ def upload_image():
                 x = landmarks.part(i).x
                 y = landmarks.part(i).y
               
-                draw.line((x - 4, y - 4, x + 4, y + 4), fill=(255, 0, 0), width=3)  # Aumento del ancho
-                draw.line((x - 4, y + 4, x + 4, y - 4), fill=(255, 0, 0), width=3)  # Aumento del ancho
+                draw.line((x - 4, y - 4, x + 4, y + 4), fill=(255, 0, 0), width=3) 
+                draw.line((x - 4, y + 4, x + 4, y - 4), fill=(255, 0, 0), width=3)
 
         
         buf = io.BytesIO()
@@ -83,7 +83,7 @@ def upload_image():
 
 @app.route('/plot-keyfacial', methods=['GET'])
 def plot_keyfacial():
-    # Lista de imágenes de ejemplo (agregar tus propias rutas de imágenes)
+    
     images = ['image1.jpg', 'image2.jpg', 'image3.jpg']
     
     try:
