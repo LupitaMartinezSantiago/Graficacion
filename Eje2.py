@@ -95,7 +95,7 @@ def plot_keyfacial():
         gray = cv2.cvtColor(image_np, cv2.COLOR_BGR2GRAY)
         faces = detector(gray)
         draw = ImageDraw.Draw(image)
-
+# Cliclo
         for face in faces:
             landmarks = predictor(gray, face)
             for i in range(0, 68):  
